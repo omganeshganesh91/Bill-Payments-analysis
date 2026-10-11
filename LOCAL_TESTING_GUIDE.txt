@@ -1,0 +1,139 @@
+# Smart Bill Scanner — Local Testing Guide
+# No Play Store needed. Works 100% locally.
+
+## ─── STEP 1: Start the API ────────────────────────────────────
+
+Open PowerShell Terminal 1:
+
+  cd C:\Users\omgan\smart-bill-scanner\api
+  node src/server.js
+
+You should see:
+  ✅ API running at http://localhost:3000/api/health
+  🖥️  DB Admin UI  → http://localhost:3000/admin
+
+── TEST API WORKS ──────────────────────────────────────────────
+Open in browser:
+  http://localhost:3000/api/health        ← should return {"status":"OK"}
+  http://localhost:3000/admin             ← DB tables UI
+  http://localhost:3000/api/categories    ← 14 categories listed
+  http://localhost:3000/api/ai/health-score ← AI endpoint working
+
+
+## ─── STEP 2: Start the App ───────────────────────────────────
+
+Open PowerShell Terminal 2:
+
+  cd C:\Users\omgan\smart-bill-scanner\app
+  node node_modules\expo\bin\cli.js start --web --clear --port 8081
+
+Wait 20 seconds, then open:
+  http://localhost:8081
+
+
+## ─── STEP 3: Test on Physical Android Phone ─────────────────
+
+Option A — Expo Go (easiest, no build needed):
+  1. Install "Expo Go" from Play Store on your phone
+  2. Make sure phone + PC are on SAME WiFi
+  3. In Terminal 2, press: s  (to show QR code)
+  4. Open Expo Go → Scan QR code
+  5. App loads on phone in 30 seconds
+
+Option B — Direct APK (no Play Store at all):
+  1. cd C:\Users\omgan\smart-bill-scanner\app
+  2. npx expo install expo-dev-client
+  3. npx expo run:android
+     (requires Android Studio + SDK installed)
+  4. APK installs directly on connected phone via USB
+
+Option C — Browser on Phone:
+  1. Find your PC IP: ipconfig → look for IPv4 (e.g. 192.168.1.23)
+  2. On phone browser, open: http://192.168.1.23:8081
+  3. Full app runs in Chrome on phone
+
+
+## ─── STEP 4: Test Each Feature ──────────────────────────────
+
+── Bill Scanning ──────────────────────────────────────────────
+1. Open app → tap 📷 scanner tab
+2. Click "Upload from Gallery" → pick any bill photo
+3. Watch OCR progress bar fill
+4. See extracted: Title, Vendor, Amount, Date, AI Category
+5. Tap "Review & Save" → confirm details → Save
+
+── Take Photo (Web) ───────────────────────────────────────────
+1. Click "Take Photo" on scanner screen
+2. Browser asks for camera permission → Allow
+3. Live webcam opens with scan frame
+4. Position bill in frame → click capture button
+5. OCR runs on captured image
+
+── Dashboard ──────────────────────────────────────────────────
+1. Open Home tab → see budget, stats, due soon
+2. Add a bill with due date = today → see red pulsing alert
+3. Pull down to refresh
+
+── Analytics / 10 AI Features ────────────────────────────────
+1. Open 📊 Analytics tab
+2. Tap each tab: Health | Alerts | Coach | Forecast | Tax | Warranty
+3. Add 3+ bills to see forecasts and anomaly detection
+4. Add Medical/Rent/Insurance bills → check Tax tab
+
+── Bill Health Score ──────────────────────────────────────────
+1. Analytics → ❤️ Health tab
+2. Shows score 0-100, grade A-F, breakdown bars
+3. Pay a bill on time → score improves next refresh
+
+── Warranty Tracker ───────────────────────────────────────────
+1. Add a bill → add tag "#warranty" → notes "1 year warranty"
+2. Analytics → 🛡️ Warranty tab → see expiry countdown
+
+── Negotiation Coach ──────────────────────────────────────────
+1. Add 3+ Internet or Mobile bills
+2. Analytics → 💡 Coach tab → see negotiation script
+3. Tap to expand → read exact words to say on the call
+
+── DB Admin UI ────────────────────────────────────────────────
+  http://localhost:3000/admin
+  - See all bills in a live table
+  - See categories, users, bill_items
+  - Refresh after adding bills → see new rows
+
+
+## ─── QUICK START (copy-paste) ───────────────────────────────
+
+# Terminal 1 — API
+cd C:\Users\omgan\smart-bill-scanner\api && node src/server.js
+
+# Terminal 2 — App
+cd C:\Users\omgan\smart-bill-scanner\app && node node_modules\expo\bin\cli.js start --web --clear
+
+# Browser tabs to open:
+# http://localhost:8081        ← App
+# http://localhost:3000/admin  ← DB Admin
+
+
+## ─── TROUBLESHOOTING ─────────────────────────────────────────
+
+Problem: AI features not loading
+  Fix: Make sure API is running on port 3000
+       The app auto-detects localhost when in browser
+
+Problem: Camera not working
+  Fix: Click browser padlock → Site settings → Camera → Allow
+       Then refresh the page
+
+Problem: Gallery shows but no text extracted
+  Fix: Use a clear, well-lit photo of a printed bill
+       Handwritten bills have lower accuracy
+       Try uploading the mock bills from /test-bills folder
+
+Problem: Port 8081 already in use
+  Fix: taskkill /F /IM node.exe  (kills all node processes)
+       Then restart both servers
+
+Problem: Physical device can't connect
+  Fix: Check DEVICE_LAN_IP in app/src/config/api.js
+       Set it to your PC's IP from: ipconfig
+       Phone and PC must be on same WiFi network

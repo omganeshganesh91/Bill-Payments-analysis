@@ -1,0 +1,18 @@
+{"id":"bee973e7-bf29-4dba-bada-d1960e702c64","name":"Transport","icon":"🚗","color":"#f97316","budget_limit":0,"created_at":"2026-10-11T08:54:46.199Z","_id":"3HHUHVE1ljqcj2pc"}
+{"id":"cc65bf8b-1c60-49dc-b7cc-824d0093e706","name":"Medical","icon":"🏥","color":"#14b8a6","budget_limit":0,"created_at":"2026-10-11T08:54:46.200Z","_id":"6LO3xQZVJBWNqpLh"}
+{"id":"78eedca3-6f96-4aa1-8956-ad9f560d2526","name":"Internet","icon":"📶","color":"#06b6d4","budget_limit":0,"created_at":"2026-10-11T08:54:46.193Z","_id":"6PnFJJTvuGN10CIE"}
+{"id":"c3a2e8ab-02b6-4ff2-b982-723245ba4779","name":"Water","icon":"💧","color":"#3b82f6","budget_limit":0,"created_at":"2026-10-11T08:54:46.180Z","_id":"9XxuKoMbCiYndxYC"}
+{"id":"6e815402-c531-4bdd-8eba-c44c2993ada7","name":"Rent","icon":"🏠","color":"#8b5cf6","budget_limit":0,"created_at":"2026-10-11T08:54:46.191Z","_id":"JmIa77qWZp7J93iL"}
+{"id":"f1715f00-1046-4c79-b3e0-123ca4fed22a","name":"Mobile","icon":"📱","color":"#ec4899","budget_limit":0,"created_at":"2026-10-11T08:54:46.195Z","_id":"KjZ6QYXOtm3UvoMx"}
+{"id":"89330395-dbf8-43b3-800d-163684df0895","name":"Electricity","icon":"⚡","color":"#f59e0b","budget_limit":0,"created_at":"2026-10-11T08:54:46.169Z","_id":"LocMu7FG2P7Qcpf4"}
+{"id":"732ae9d2-1539-44c3-93d4-4a8123b60af3","name":"Education","icon":"📚","color":"#84cc16","budget_limit":0,"created_at":"2026-10-11T08:54:46.204Z","_id":"MiwsKrbCWAMUIQsk"}
+{"id":"00b5701a-ce63-4f87-a7fb-98d96fd9a838","name":"Shopping","icon":"🛍️","color":"#d946ef","budget_limit":0,"created_at":"2026-10-11T08:54:46.207Z","_id":"P7WuFaagrbEiIkGZ"}
+{"id":"521a9760-8be4-4535-80e3-7ea3a51ed0a3","name":"Entertainment","icon":"🎬","color":"#f43f5e","budget_limit":0,"created_at":"2026-10-11T08:54:46.209Z","_id":"PwrOneTKt4QQT5eL"}
+{"id":"7c3f323c-0855-4acc-b059-e2f95d5f3996","name":"Food & Dining","icon":"🍽️","color":"#ef4444","budget_limit":0,"created_at":"2026-10-11T08:54:46.197Z","_id":"RfqF4buApSFC1ybU"}
+{"id":"f2e86c57-66c3-44df-a268-2f11ade03429","name":"Insurance","icon":"🛡️","color":"#6366f1","budget_limit":0,"created_at":"2026-10-11T08:54:46.202Z","_id":"lP1KR1gSO0YML4xL"}
+{"id":"8dee1a90-dd0d-410e-8b12-41c1cce071d1","name":"Other","icon":"📄","color":"#94a3b8","budget_limit":0,"created_at":"2026-10-11T08:54:46.210Z","_id":"qL49CHnxLkw7BaDT"}
+{"id":"95ecf0c0-81ec-4a2c-bfbd-5de8277e62df","name":"Grocery","icon":"🛒","color":"#10b981","budget_limit":0,"created_at":"2026-10-11T08:54:46.188Z","_id":"zi9k1T8klX1equM0"}
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"id","unique":true}}
+{"$$indexCreated":{"fieldName":"name","unique":true}}
